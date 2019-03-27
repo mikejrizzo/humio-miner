@@ -21,12 +21,13 @@ https://github.com/mikejrizzo/humio-miner.git
 Once installation is complete, activate it by clicking the checkbox icon on the right
 of the extension in the list.
 
-## Using the Miner
+## Using the Miner in 10 Mostly Easy Steps
 To use the Miner:
  1. Go to CONFIG and click the "browse prototypes" button.
  2. Search the Prototypes library for "Humio" and then click on the desired Miner.
  3. Click the "NEW" (new prototype from this) button
- 4. Replace the placeholder text (including the "<>" characters) for the following items
+ 4. Enter a name for the new Prototype (recommend referencing what the query returns)
+ 5. Replace the placeholder text (including the "<>" characters) for the following items
     * API Token
         * Obtain this from the "Your Account" page within Humio
     * Indicator
@@ -40,6 +41,12 @@ To use the Miner:
         the same time period over and over, and will speed up query completion.
     * Humio API URL
         * Example: https://humio-instance.yourdomain.com/api/v1/dataspaces/your_repo/query
+ 6. Click OK to save the Prototype with your changes
+ 7. Find your newly created Prototype in the Prototype library and click on it to open
+ 8. Click the "CLONE" (new node from this prototype) button
+ 9. Enter a name for the Node you are creating and click OK
+ 10. Connect to other Nodes as you would any other miner
+    
 
 For information on how to construct a Humio search query, see their documentation
 at https://docs.humio.com/api/search-api/

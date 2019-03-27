@@ -16,13 +16,15 @@
 This module implements minemeld.ft.humio.HumioSearch, the Miner node for Humio search query HTTPS.
 """
 
+from __future__ import absolute_import
+
 import requests
 import logging
 import jmespath
 import os
 import yaml
 
-from . import basepoller
+from minemeld.ft.basepoller import BasePollerFT
 
 LOG = logging.getLogger(__name__)
 
