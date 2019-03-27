@@ -5,7 +5,7 @@ description: >
     You will need to supply an API token within the Authorization header.
 
 prototypes:
-    HumioThreatRadar:
+    HumioSearch:
         author: Mike Rizzo
         development_status: EXPERIMENTAL
         node_type: miner

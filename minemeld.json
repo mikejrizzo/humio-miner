@@ -9,7 +9,7 @@
             "humio_search_miner.HumioQuery": "humio-miner.node:HumioQuery"
         },
         "minemeld_prototypes": {
-            "humio_search_miner.prototypes": "humio-miner:prototypes"
+            "humio-miner.prototypes": "humio-miner:prototypes"
         }
     },
     "manifest_version": 0
