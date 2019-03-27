@@ -29,7 +29,7 @@ from minemeld.ft.basepoller import BasePollerFT
 LOG = logging.getLogger(__name__)
 
 
-class HumioQuery(basepoller.BasePollerFT):
+class HumioQuery(BasePollerFT):
     """Implements class for miners of JSON data returned from Humio.
 
     **Config parameters**
@@ -160,7 +160,7 @@ class HumioQuery(basepoller.BasePollerFT):
 
     @staticmethod
     def gc(name, config=None):
-        basepoller.BasePollerFT.gc(name, config=config)
+        BasePollerFT.gc(name, config=config)
 
         side_config_path = None
         if config is not None:
