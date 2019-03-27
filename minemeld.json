@@ -6,10 +6,10 @@
     "description": "Sample MineMeld node extension for mining Humio Search API",
     "entry_points": {
         "minemeld_nodes": {
-            "humio_search_miner.HumioQuery": "humio-miner.node:HumioQuery"
+            "humio_search_miner.HumioQuery": "humiominer.node:HumioQuery"
         },
         "minemeld_prototypes": {
-            "humio-miner.prototypes": "humio-miner:prototypes"
+            "humio_search_miner.prototypes": "humiominer:prototypes"
         }
     },
     "manifest_version": 0
