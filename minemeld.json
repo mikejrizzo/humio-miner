@@ -1,0 +1,16 @@
+{
+    "version": "0.1",
+    "name": "humio-miner",
+    "author": "Mike Rizzo",
+    "author_email": "mrizzo@paloaltonetworks.com",
+    "description": "Sample MineMeld node extension for mining Humio Search API",
+    "entry_points": {
+        "minemeld_nodes": {
+            "humio_search_miner.HumioQuery": "humio-miner.node:HumioQuery"
+        },
+        "minemeld_prototypes": {
+            "humio_search_miner.prototypes": "humio-miner:prototypes"
+        }
+    },
+    "manifest_version": 0
+}

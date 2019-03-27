@@ -1,0 +1,37 @@
+description: >
+    Library of Prototypes for retrieving indicators from log searches in Humio.
+    Use of these functions requires your own Humio instance accessible from the Minemeld server.
+
+    You will need to supply an API token within the Authorization header.
+
+prototypes:
+    HumioThreatRadar:
+        author: Mike Rizzo
+        development_status: EXPERIMENTAL
+        node_type: miner
+        indicator_types:
+            - IPv4
+        tags:
+            - ConfidenceHigh
+            - ShareLevelGreen
+        description: Miner for Humio logs
+        class: humio_search_miner.HumioQuery
+        config:
+            source_name: Humio
+            url: <YOUR_HUMIO_REPO_URL>
+            extractor: '[]'
+            prefix: humio.<short_description_of_feed>
+            indicator: <field_name>
+            fields:
+                - <additional_fields_to_include>
+            attributes:
+                confidence: 100
+                share_level: green
+                type: IPv4
+            age_out:
+                sudden_death: false
+                default: 30d
+                interval: 257
+            query_string: '<Humio_Search_API_Query>'
+            headers: {'Authorization': 'Bearer <YOUR_API_TOKEN>', 'ACCEPT': 'application/json', 'content-type': 'application/json', 'Cache-Control': 'no-cache'}
+            verify_cert: false
