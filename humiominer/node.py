@@ -251,9 +251,6 @@ class HumioQuery(BasePollerFT):
             data=self.query_string
         )
 
-        if self.username is not None and self.password is not None:
-            rkwargs['auth'] = (self.username, self.password)
-
         if self.headers is not None:
             rkwargs['headers'] = self.headers
 
