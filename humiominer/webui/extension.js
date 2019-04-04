@@ -354,7 +354,7 @@ angular.module('humio_search_miner_Webui', [])
         });
     }])
     .run(['NodeDetailResolver', '$state', function(NodeDetailResolver, $state) {
-        NodeDetailResolver.registerClass('humio-miner.node.Output', {
+        NodeDetailResolver.registerClass('humiominer.node.HumioQuery', {
             tabs: [{
                 icon: 'fa fa-circle-o',
                 tooltip: 'INFO',
