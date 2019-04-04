@@ -1,5 +1,5 @@
 {
-    "version": "0.1",
+    "version": "0.2",
     "name": "humio-miner",
     "author": "Mike Rizzo",
     "author_email": "mrizzo@paloaltonetworks.com",
@@ -10,6 +10,9 @@
         },
         "minemeld_prototypes": {
             "humio_search_miner.prototypes": "humiominer:prototypes"
+        },
+        "minemeld_webui": {
+            "humio_search_miner_Webui": "humiominer:webui_blueprint"
         }
     },
     "manifest_version": 0

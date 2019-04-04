@@ -18,10 +18,8 @@ prototypes:
         class: humio_search_miner.HumioQuery
         config:
             source_name: Humio
-            url: <YOUR_HUMIO_REPO_URL>
             extractor: '[]'
             prefix: humio.<short_description_of_feed>
-            indicator: <field_name>
             fields:
                 - <additional_fields_to_include>
             attributes:
@@ -32,6 +30,5 @@ prototypes:
                 sudden_death: false
                 default: 30d
                 interval: 257
-            query_string: '<Humio_Search_API_Query>'
-            headers: {'Authorization': 'Bearer <YOUR_API_TOKEN>', 'ACCEPT': 'application/json', 'content-type': 'application/json', 'Cache-Control': 'no-cache'}
+            headers: {'ACCEPT': 'application/json', 'content-type': 'application/json', 'Cache-Control': 'no-cache'}
             verify_cert: false

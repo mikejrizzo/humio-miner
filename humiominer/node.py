@@ -108,9 +108,6 @@ class HumioQuery(BasePollerFT):
         self.prefix = self.config.get('prefix', 'json')
         self.fields = self.config.get('fields', None)
 
-        self.username = self.config.get('username', None)
-        self.password = self.config.get('password', None)
-
         self.headers = self.config.get('headers', None)
 
         # option for enabling client cert, default disabled
@@ -146,11 +143,19 @@ class HumioQuery(BasePollerFT):
             LOG.error('%s - Error loading side config: %s', self.name, str(e))
             return
 
-        username = sconfig.get('username', None)
-        password = sconfig.get('password', None)
-        if username is not None and password is not None:
-            self.username = username
-            self.password = password
+        api_url = sconfig.get('api_url', None)
+        api_token = sconfig.get('api_token', None)
+        query_string = sconfig.get('query_string', None)
+        field_name = sconfig.get('field_name', None)
+        prefix = sconfig.get('prefix', None)
+
+        if api_url is not None and api_token is not None and query_string is not None and field_name is not None and prefix is not None:
+            self.url = api_url
+            self.api_token = api_token
+            self.query_string = query_string
+            self.indicator = field_name
+            self.prefix = prefix
+            self.headers["Authorization"] = "Bearer " + self.api_token
             LOG.info('{} - Loaded credentials from side config'.format(self.name))
 
     def hup(self, source=None):
