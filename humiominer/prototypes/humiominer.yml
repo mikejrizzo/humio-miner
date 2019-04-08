@@ -19,9 +19,6 @@ prototypes:
         config:
             source_name: Humio
             extractor: '[]'
-            prefix: humio.<short_description_of_feed>
-            fields:
-                - <additional_fields_to_include>
             attributes:
                 confidence: 100
                 share_level: green

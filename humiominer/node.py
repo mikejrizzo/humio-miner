@@ -146,14 +146,14 @@ class HumioQuery(BasePollerFT):
         api_url = sconfig.get('api_url', None)
         api_token = sconfig.get('api_token', None)
         query_string = sconfig.get('query_string', None)
-        field_name = sconfig.get('field_name', None)
+        indicator_name = sconfig.get('indicator_name', None)
         prefix = sconfig.get('prefix', None)
 
-        if api_url is not None and api_token is not None and query_string is not None and field_name is not None and prefix is not None:
+        if api_url is not None and api_token is not None and query_string is not None and indicator_name is not None and prefix is not None:
             self.url = api_url
             self.api_token = api_token
             self.query_string = query_string
-            self.indicator = field_name
+            self.indicator = indicator_name
             self.prefix = prefix
             self.headers["Authorization"] = "Bearer " + self.api_token
             LOG.info('{} - Loaded credentials from side config'.format(self.name))

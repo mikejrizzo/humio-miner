@@ -10,7 +10,7 @@ function HumioMinerSideConfigController($scope, MinemeldConfigService, MineMeldR
     vm.api_url = undefined;
     vm.api_token = undefined;
     vm.query_string = undefined;
-    vm_field_name = undefined;
+    vm_indicator_name = undefined;
     vm_prefix = undefined;
 
     vm.loadSideConfig = function() {
@@ -40,10 +40,10 @@ function HumioMinerSideConfigController($scope, MinemeldConfigService, MineMeldR
                 vm.query_string = undefined;
             }
 
-            if (result.field_name) {
-                vm.field_name = result.field_name;
+            if (result.indicator_name) {
+                vm.indicator_name = result.indicator_name;
             } else {
-                vm.field_name = undefined;
+                vm.indicator_name = undefined;
             }
 
             if (result.prefix) {
@@ -57,7 +57,7 @@ function HumioMinerSideConfigController($scope, MinemeldConfigService, MineMeldR
             vm.api_url = undefined;
             vm.api_token = undefined;
             vm.query_string = undefined;
-            vm_field_name = undefined;
+            vm_indicator_name = undefined;
             vm_prefix = undefined;
         });
     };
@@ -76,8 +76,8 @@ function HumioMinerSideConfigController($scope, MinemeldConfigService, MineMeldR
         if (vm.query_string) {
             side_config.query_string = vm.query_string;
         }
-        if (vm.field_name) {
-            side_config.field_name = vm.field_name;
+        if (vm.indicator_name) {
+            side_config.indicator_name = vm.indicator_name;
         }
         if (vm.prefix) {
             side_config.prefix = vm.prefix;
@@ -154,10 +154,10 @@ function HumioMinerSideConfigController($scope, MinemeldConfigService, MineMeldR
             });
         });
     };
-    vm.setFieldName = function() {
+    vm.setIndicatorName = function() {
         var mi = $modal.open({
-            templateUrl: '/extensions/webui/humio_search_miner_Webui/humio-search.miner.setfieldname.modal.html',
-            controller: ['$modalInstance', humio-search-fieldname-controller],
+            templateUrl: '/extensions/webui/humio_search_miner_Webui/humio-search.miner.setindicatorname.modal.html',
+            controller: ['$modalInstance', humiosearchIndicatorNamecontroller],
             controllerAs: 'vm',
             bindToController: true,
             backdrop: 'static',
@@ -165,7 +165,7 @@ function HumioMinerSideConfigController($scope, MinemeldConfigService, MineMeldR
         });
 
         mi.result.then((result) => {
-            vm.field_name = result.field_name;
+            vm.indicator_name = result.indicator_name;
 
             return vm.saveSideConfig().then((result) => {
                 toastr.success('FIELD NAME SET');
@@ -288,13 +288,13 @@ function humiosearchqscontroller($modalInstance) {
     };
 }
 
-function humiosearchfieldnamecontroller($modalInstance) {
+function humiosearchIndicatorNamecontroller($modalInstance) {
     var vm = this;
 
-    vm.field_name = undefined;
+    vm.indicator_name = undefined;
 
     vm.valid = function() {
-        if (!vm.field_name) {
+        if (!vm.indicator_name) {
             return false;
         }
 
@@ -304,7 +304,7 @@ function humiosearchfieldnamecontroller($modalInstance) {
     vm.save = function() {
         var result = {};
 
-        result.field_name = vm.field_name;
+        result.indicator_name = vm.indicator_name;
 
         $modalInstance.close(result);
     };
