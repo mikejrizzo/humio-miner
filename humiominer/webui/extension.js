@@ -2,7 +2,7 @@ console.log('Loading Humio-miner WebUI');
 
 (function() {
 
-function Humio-Miner-SideConfigController($scope, MinemeldConfigService, MineMeldRunningConfigStatusService,
+function HumioMinerSideConfigController($scope, MinemeldConfigService, MineMeldRunningConfigStatusService,
                                        toastr, $modal, ConfirmService, $timeout) {
     var vm = this;
 
@@ -77,10 +77,10 @@ function Humio-Miner-SideConfigController($scope, MinemeldConfigService, MineMel
             side_config.query_string = vm.query_string;
         }
         if (vm.field_name) {
-            side_config.field_name = vm.field_name
+            side_config.field_name = vm.field_name;
         }
         if (vm.prefix) {
-            side_config.prefix = vm.prefix
+            side_config.prefix = vm.prefix;
         }
 
         return MinemeldConfigService.saveDataFile(
@@ -93,7 +93,7 @@ function Humio-Miner-SideConfigController($scope, MinemeldConfigService, MineMel
     vm.setAPIURL = function() {
         var mi = $modal.open({
             templateUrl: '/extensions/webui/humio_search_miner_Webui/humio-search.miner.seturl.modal.html',
-            controller: ['$modalInstance', humio-search-url-controller],
+            controller: ['$modalInstance', humiosearchurlcontroller],
             controllerAs: 'vm',
             bindToController: true,
             backdrop: 'static',
@@ -115,7 +115,7 @@ function Humio-Miner-SideConfigController($scope, MinemeldConfigService, MineMel
     vm.setAPIToken = function() {
         var mi = $modal.open({
             templateUrl: '/extensions/webui/humio_search_miner_Webui/humio-search.miner.settoken.modal.html',
-            controller: ['$modalInstance', humio-search-token-controller],
+            controller: ['$modalInstance', humiosearchtokencontroller],
             controllerAs: 'vm',
             bindToController: true,
             backdrop: 'static',
@@ -136,7 +136,7 @@ function Humio-Miner-SideConfigController($scope, MinemeldConfigService, MineMel
     vm.setQueryString = function() {
         var mi = $modal.open({
             templateUrl: '/extensions/webui/humio_search_miner_Webui/humio-search.miner.setqs.modal.html',
-            controller: ['$modalInstance', humio-search-qs-controller],
+            controller: ['$modalInstance', humiosearchqscontroller],
             controllerAs: 'vm',
             bindToController: true,
             backdrop: 'static',
@@ -178,7 +178,7 @@ function Humio-Miner-SideConfigController($scope, MinemeldConfigService, MineMel
     vm.setPrefix = function() {
         var mi = $modal.open({
             templateUrl: '/extensions/webui/humio_search_miner_Webui/humio-search.miner.setprefix.modal.html',
-            controller: ['$modalInstance', humio-search-prefix-controller],
+            controller: ['$modalInstance', humiosearchprefixcontroller],
             controllerAs: 'vm',
             bindToController: true,
             backdrop: 'static',
@@ -200,7 +200,7 @@ function Humio-Miner-SideConfigController($scope, MinemeldConfigService, MineMel
     vm.loadSideConfig();
 }
 
-function humio-search-url-controller($modalInstance) {
+function humiosearchurlcontroller($modalInstance) {
     var vm = this;
 
     vm.api_url = undefined;
@@ -219,14 +219,14 @@ function humio-search-url-controller($modalInstance) {
         result.api_url = vm.api_url;
 
         $modalInstance.close(result);
-    }
+    };
 
     vm.cancel = function() {
         $modalInstance.dismiss();
-    }
+    };
 }
 
-function humio-search-token-controller($modalInstance) {
+function humiosearchtokencontroller($modalInstance) {
     var vm = this;
 
     vm.api_token = undefined;
@@ -255,14 +255,14 @@ function humio-search-token-controller($modalInstance) {
         result.api_token = vm.api_token;
 
         $modalInstance.close(result);
-    }
+    };
 
     vm.cancel = function() {
         $modalInstance.dismiss();
-    }
+    };
 }
 
-function humio-search-qs-controller($modalInstance) {
+function humiosearchqscontroller($modalInstance) {
     var vm = this;
 
     vm.query_string = undefined;
@@ -281,14 +281,14 @@ function humio-search-qs-controller($modalInstance) {
         result.query_string = vm.query_string;
 
         $modalInstance.close(result);
-    }
+    };
 
     vm.cancel = function() {
         $modalInstance.dismiss();
-    }
+    };
 }
 
-function humio-search-fieldname-controller($modalInstance) {
+function humiosearchfieldnamecontroller($modalInstance) {
     var vm = this;
 
     vm.field_name = undefined;
@@ -307,14 +307,14 @@ function humio-search-fieldname-controller($modalInstance) {
         result.field_name = vm.field_name;
 
         $modalInstance.close(result);
-    }
+    };
 
     vm.cancel = function() {
         $modalInstance.dismiss();
-    }
+    };
 }
 
-function humio-search-prefix-controller($modalInstance) {
+function humiosearchprefixcontroller($modalInstance) {
     var vm = this;
 
     vm.prefix = undefined;
@@ -333,18 +333,18 @@ function humio-search-prefix-controller($modalInstance) {
         result.prefix = vm.prefix;
 
         $modalInstance.close(result);
-    }
+    };
 
     vm.cancel = function() {
         $modalInstance.dismiss();
-    }
+    };
 }
 
 angular.module('humio_search_miner_Webui', [])
-    .controller('Humio-Miner-SideConfigController', [
+    .controller('HumioMinerSideConfigController', [
         '$scope', 'MinemeldConfigService', 'MineMeldRunningConfigStatusService',
         'toastr', '$modal', 'ConfirmService', '$timeout',
-        Humio-Miner-SideConfigController
+        HumioMinerSideConfigController
     ])
     .config(['$stateProvider', function($stateProvider) {
         $stateProvider.state('nodedetail.msftwdatpoutputinfo', {
