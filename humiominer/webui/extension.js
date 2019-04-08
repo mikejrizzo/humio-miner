@@ -347,7 +347,7 @@ angular.module('humio_search_miner_Webui', [])
         HumioMinerSideConfigController
     ])
     .config(['$stateProvider', function($stateProvider) {
-        $stateProvider.state('nodedetail.msftwdatpoutputinfo', {
+        $stateProvider.state('nodedetail.humiominerinfo', {
             templateUrl: '/extensions/webui/humio_search_miner_Webui/humio-search.miner.output.info.html',
             controller: 'NodeDetailInfoController',
             controllerAs: 'vm'
