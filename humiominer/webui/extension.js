@@ -1,5 +1,7 @@
 console.log('Loading Humio-miner WebUI');
-
+import { INodeDetailResolverService } from '../../app/services/nodedetailresolver';
+import { IMinemeldStatusNode } from '../../app/services/status';
+import { NodeDetailFeedInfoController } from './feed.controller';
 (function() {
 
 function HumioMinerSideConfigController($scope, MinemeldConfigService, MineMeldRunningConfigStatusService,
